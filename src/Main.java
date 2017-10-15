@@ -23,6 +23,9 @@ public class Main extends Application {
     }
 
     private static void bmSearch(String text, String pattern) {
+
+        long start = System.nanoTime();
+
         int textLen = text.length();
         int patnLen = pattern.length();
         int[] skip = new int[128];
@@ -45,6 +48,9 @@ public class Main extends Application {
             }
             i += Math.max(patnLen - j, skip[text.charAt(i)]);
         }
+
+        long end = System.nanoTime();
+        System.out.println((end - start)  + "ns"); // 総時間
     }
 
     public static void main(String[] args) {
